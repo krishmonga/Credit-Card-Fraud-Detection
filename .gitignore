@@ -1,0 +1,12 @@
+# Dataset (too large for GitHub - download from Kaggle)
+archive/
+archive.zip
+
+# Generated output plots
+notebook/output/
+scripts/output/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
