@@ -8,5 +8,52 @@ scripts/output/
 
 # Python
 __pycache__/
-*.pyc
-.ipynb_checkpoints/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+share/python-wheels/
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.ruff_cache/
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+.ipynb_checkpoints
+.DS_Store
+
+# Model artifacts
+*.pkl
+*.joblib
+*.h5
+*.ckpt
+
+# OS files
+Thumbs.db
+desktop.ini
