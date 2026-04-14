@@ -35,8 +35,7 @@ def scale_features(df):
     scaler = StandardScaler()
     df = df.copy()
 
-    df["Amount_scaled"] = scaler.fit_transform(df[["Amount"]])
-    df["Time_scaled"] = scaler.fit_transform(df[["Time"]])
+    df[["Amount_scaled", "Time_scaled"]] = scaler.fit_transform(df[["Amount", "Time"]])
     df = df.drop(columns=["Amount", "Time"])
 
     print("Scaling complete.")
@@ -44,7 +43,7 @@ def scale_features(df):
     print(f"  Time_scaled   -- mean: {df['Time_scaled'].mean():.4f}, std: {df['Time_scaled'].std():.4f}")
     print(f"  Final columns ({len(df.columns)}): {df.columns.tolist()}")
 
-    return df
+    return df, scaler
 
 
 def split_data(df):
@@ -111,7 +110,7 @@ def plot_resampling_comparison(y_train, y_train_smote, y_train_under):
     plt.suptitle("Effect of Resampling Techniques", fontsize=14, fontweight="bold", y=1.02)
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "resampling_comparison.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
 
 def preprocess_pipeline(df):
@@ -124,7 +123,7 @@ def preprocess_pipeline(df):
     print(f"\n{'=' * 60}")
     print("  STEP 2: Feature Scaling")
     print("=" * 60)
-    df = scale_features(df)
+    df, scaler = scale_features(df)
 
     print(f"\n{'=' * 60}")
     print("  STEP 3: Train-Test Split")
@@ -149,4 +148,5 @@ def preprocess_pipeline(df):
         "y_train": y_train, "y_test": y_test,
         "X_train_smote": X_train_smote, "y_train_smote": y_train_smote,
         "X_train_under": X_train_under, "y_train_under": y_train_under,
+        "scaler": scaler,
     }

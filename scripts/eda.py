@@ -29,7 +29,7 @@ def plot_class_distribution(class_counts, class_pct):
 
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "class_distribution.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
     print("\nKEY INSIGHT: The dataset is EXTREMELY imbalanced.")
     print("Only 0.17% of transactions are fraudulent.")
@@ -67,7 +67,7 @@ def plot_amount_analysis(normal_df, fraud_df):
 
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "amount_analysis.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
     print("\nINSIGHT: Fraudulent transactions tend to have LOWER amounts.")
 
@@ -88,7 +88,7 @@ def plot_time_analysis(normal_df, fraud_df):
 
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "time_analysis.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
     print("INSIGHT: Normal transactions show a clear day/night pattern.")
     print("Fraud transactions are more uniformly distributed.")
@@ -116,7 +116,7 @@ def plot_correlation_analysis(df):
 
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "correlation_analysis.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
     print("\nTop negatively correlated features:")
     for feat, val in corr_with_class.head(5).items():
@@ -150,7 +150,7 @@ def plot_feature_comparison(normal_df, fraud_df):
     plt.suptitle("Feature Distributions: Normal vs Fraud", fontsize=14, fontweight="bold", y=1.02)
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "feature_comparison.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
 
 def run_full_eda(df):

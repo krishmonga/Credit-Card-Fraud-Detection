@@ -88,7 +88,7 @@ def plot_confusion_matrices(predictions, y_test):
     plt.suptitle("Confusion Matrices - All Models", fontsize=14, fontweight="bold", y=1.05)
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "confusion_matrices.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
 
 def plot_roc_curves(probabilities, y_test):
@@ -108,7 +108,7 @@ def plot_roc_curves(probabilities, y_test):
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "roc_curves.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
 
 def plot_feature_importance(trained_models, feature_names):
@@ -136,7 +136,7 @@ def plot_feature_importance(trained_models, feature_names):
     plt.suptitle("Feature Importance - Tree-Based Models", fontsize=14, fontweight="bold", y=1.02)
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "feature_importance.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
     print("\nTop 10 Most Important Features (Random Forest):")
     rf_importances = pd.Series(
@@ -208,7 +208,7 @@ def plot_threshold_tuning(results_df, trained_models, probabilities, y_test):
 
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "threshold_tuning.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
     print(f"\nOptimal threshold (maximizes F1): {optimal_threshold:.2f}")
     print(f"  Precision: {t_precisions[optimal_idx]:.4f}")
@@ -242,7 +242,7 @@ def plot_metrics_summary(results_df):
     plt.suptitle("Model Performance Comparison", fontsize=15, fontweight="bold", y=1.02)
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "model_comparison.png"), bbox_inches="tight")
-    plt.show()
+    plt.close()
 
 
 def predict_transaction(model, sample, feature_names, model_name="Model"):

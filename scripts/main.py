@@ -34,10 +34,14 @@ from evaluation import (
     predict_transaction,
     print_final_summary,
 )
-from config import OUTPUT_DIR
+from config import OUTPUT_DIR, setup_environment
+import joblib
 
 
 def main():
+    # ── 0. Setup Environment ──────────────────────────────────────
+    setup_environment()
+
     # ── 1. Load Data ──────────────────────────────────────────────
     print("\n" + "=" * 70)
     print("  SECTION 1: LOADING DATA")
@@ -133,7 +137,11 @@ def main():
 
     print_final_summary(results_df)
 
-    print(f"\n\nPipeline complete! All visualizations saved to: {OUTPUT_DIR}")
+    print(f"\n\nSaving best model ({best_model_name}) and scaler to {OUTPUT_DIR}...")
+    joblib.dump(best_model, OUTPUT_DIR / "best_model.pkl")
+    joblib.dump(data["scaler"], OUTPUT_DIR / "scaler.pkl")
+
+    print(f"Pipeline complete! All visualizations and models saved to: {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":

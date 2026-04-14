@@ -1,9 +1,11 @@
 import pandas as pd
-from config import DATA_PATH
+from config import get_data_path
 
 
-def load_data(path=DATA_PATH):
+def load_data(path=None):
     """Load the credit card fraud dataset and print basic info."""
+    if path is None:
+        path = get_data_path()
     df = pd.read_csv(path)
 
     print(f"Dataset shape: {df.shape[0]:,} rows x {df.shape[1]} columns")
