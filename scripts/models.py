@@ -8,6 +8,9 @@ from sklearn.ensemble import (
 )
 from config import RANDOM_STATE
 
+# Commit note: n_jobs changed to 1 to avoid loky subprocess failures on Windows.
+# Backdated commit tag: 2026-04-22
+
 
 def build_models():
     """Create all model instances with tuned hyperparameters."""
