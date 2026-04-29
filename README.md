@@ -43,6 +43,10 @@ streamlit run app.py
 
 Launch an interactive web interface to explore EDA, model performance, and test fraud predictions.
 
+## Changelog
+
+- 2026-04-29: README updated and simplified to match current scripts and dashboard.
+
 ## Pipeline Steps
 
 1. **Data Loading** — Load and inspect Kaggle dataset
