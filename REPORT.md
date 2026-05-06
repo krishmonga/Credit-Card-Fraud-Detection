@@ -58,3 +58,6 @@ streamlit run app.py
 - `scripts/output/best_model.pkl` — Serialized best-performing model
 - `scripts/output/scaler.pkl` — StandardScaler for inference
 
+---
+_Report note:_ Updated project report formatting and usage on 2026-05-06.
+
