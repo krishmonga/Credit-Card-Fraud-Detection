@@ -15,7 +15,7 @@ def build_models():
     dt = DecisionTreeClassifier(max_depth=10, min_samples_split=5, random_state=RANDOM_STATE)
     rf = RandomForestClassifier(
         n_estimators=100, max_depth=15, min_samples_split=5,
-        random_state=RANDOM_STATE, n_jobs=-1,
+        random_state=RANDOM_STATE, n_jobs=1,
     )
     gb = GradientBoostingClassifier(
         n_estimators=50, max_depth=4, learning_rate=0.1,
@@ -25,7 +25,7 @@ def build_models():
     lr2 = LogisticRegression(max_iter=1000, random_state=RANDOM_STATE, C=1.0)
     rf2 = RandomForestClassifier(
         n_estimators=100, max_depth=15, min_samples_split=5,
-        random_state=RANDOM_STATE, n_jobs=-1,
+        random_state=RANDOM_STATE, n_jobs=1,
     )
     gb2 = GradientBoostingClassifier(
         n_estimators=50, max_depth=4, learning_rate=0.1,
@@ -33,7 +33,7 @@ def build_models():
     )
     vc = VotingClassifier(
         estimators=[("lr", lr2), ("rf", rf2), ("gb", gb2)],
-        voting="soft", n_jobs=-1,
+        voting="soft", n_jobs=1,
     )
 
     return {
